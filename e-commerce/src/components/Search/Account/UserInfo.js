@@ -1,21 +1,29 @@
 import React from 'react'
-import { View, Text, StyleSheet } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 
-export default function UserInfo(prorps) {
+export default function UserInfo(props) {
+
     const { user } = props;
+
     return (
-        <View style={Styles.container}>
-            <Text style={Styles.title}>Bienvenido,</Text>
-            <Text style={Styles.titleName}></Text>
-            {user.name && user.lastname ? `${user.name} ${user.lastname}` : user.email}
+        <View style={styles.container}>
+            <Text style={styles.title}>Bienvenido,</Text>
+            <Text style={styles.titleName}>
+                {user.name && user.lastname
+                    ? `${user.name} ${user.lastname}`
+                    : user.email}
+            </Text>
+
         </View>
     )
 }
 
-const Styles = StyleSheet.create({
+
+const styles = StyleSheet.create({
+
     container: {
         height: 100,
-        justifyContent: "center",
+        justifyContent: 'center',
         padding: 20,
     },
     title: {
@@ -23,6 +31,6 @@ const Styles = StyleSheet.create({
     },
     titleName: {
         fontSize: 20,
-        fontWeight: "bold"
+        fontWeight: "bold",
     }
 })

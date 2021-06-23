@@ -10,6 +10,8 @@ import useAuth from "../../hooks/useAuth";
 import colors from '../../Styles/colors';
 
 
+
+
 export default function Account() {
 
     const [user, setUser] = useState(null);
@@ -25,20 +27,24 @@ export default function Account() {
         }, [])
     );
 
-
+    
     return (
         <>
-            <StatusBar backgroundColor={colors.bgDark} barStyle="light-content" />
+            <StatusBar backgroundColor={colors.tele_cafeObs} barStyle="light-content" />
+
             {!user ? (
                 <ScreenLoading size='large' />
             ) : (
                 <>
                     <Search />
                     <ScrollView>
-                        <Text>Hola</Text>
+                        <UserInfo user={user} />
+                        <Menu />
                     </ScrollView>
                 </>
             )}
+
         </>
-    );
+
+    )
 }
